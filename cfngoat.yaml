@@ -25,11 +25,11 @@ Parameters:
     Default: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
 
 Resources:
-  ####################
+  ###'sts:AssumeRole'"make it work "###################
   ###  EC2 in VPC  ###
   ####################
   EC2Instance:
-    Type: AWS::EC2::Instance
+    Type: AWS::EC2::Instancsssssssss
     Properties:
       AvailabilityZone:
         Fn::Select:
@@ -996,6 +996,14 @@ Resources:
           Value: jonathan.jozwiak@googlemail.com
         - Key: yor_trace
           Value: 9e00e7c2-b27c-4141-af5a-2d90c9632a23
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
   DataScienceBucket:
     # not encrypted
     Type: AWS::S3::Bucket
